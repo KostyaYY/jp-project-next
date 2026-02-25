@@ -1,7 +1,7 @@
 'use client';
 
 import Link from 'next/link';
-// import { HeroSection } from '../components/HeroSection';
+import { HeroSection } from '@/components/HeroSection/HeroSection';
 import { useLanguage } from '@/context/LanguageContext';
 import { newsArticles } from '@/data/mockData';
 import styles from './HomePage.module.css';
@@ -12,7 +12,7 @@ export function HomePage() {
   return (
     <>
       <div className={styles.home}>
-        {/* <HeroSection /> */}
+        <HeroSection />
 
         {/* About Section */}
         <section className={`${styles.section} ${styles.aboutSection}`}>
