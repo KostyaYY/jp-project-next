@@ -1,0 +1,388 @@
+.home {
+  min-height: 100vh;
+}
+
+.section {
+  padding: 8rem 1.5rem;
+}
+
+@media (min-width: 1024px) {
+  .section {
+    padding: 8rem 3rem;
+  }
+}
+
+.container {
+  max-width: 1600px;
+  margin: 0 auto;
+}
+
+/* About Section */
+.aboutSection {
+  background-color: #f3eae2;
+}
+
+.aboutContent {
+  max-width: 1200px;
+}
+
+.sectionLabel {
+  font-size: 0.75rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: rgba(0, 0, 0, 0.4);
+  margin-bottom: 2rem;
+}
+
+.aboutHeading {
+  font-size: 2.5rem;
+  font-weight: 300;
+  line-height: 1.15;
+  color: #1a1a1a;
+  margin-bottom: 3rem;
+}
+
+@media (min-width: 768px) {
+  .aboutHeading {
+    font-size: 3rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .aboutHeading {
+    font-size: 3.75rem;
+  }
+}
+
+.aboutLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.875rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #7f9ca8;
+  text-decoration: none;
+  border-bottom: 1px solid currentColor;
+  padding-bottom: 0.25rem;
+  transition: opacity 0.3s ease;
+}
+
+.aboutLink:hover {
+  opacity: 0.7;
+}
+
+.aboutLink svg {
+  transition: transform 0.3s ease;
+}
+
+.aboutLink:hover svg {
+  transform: translateX(0.25rem);
+}
+
+/* News Section */
+.newsSection {
+  background-color: #ffffff;
+}
+
+.newsHeader {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  margin-bottom: 4rem;
+}
+
+.newsHeading {
+  font-size: 2.5rem;
+  font-weight: 300;
+  color: #1a1a1a;
+}
+
+@media (min-width: 768px) {
+  .newsHeading {
+    font-size: 3rem;
+  }
+}
+
+.newsViewAll {
+  display: none;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.875rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #7f9ca8;
+  text-decoration: none;
+  border-bottom: 1px solid currentColor;
+  padding-bottom: 0.25rem;
+  transition: opacity 0.3s ease;
+}
+
+@media (min-width: 768px) {
+  .newsViewAll {
+    display: inline-flex;
+  }
+}
+
+.newsViewAll:hover {
+  opacity: 0.7;
+}
+
+.newsGrid {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.newsCard {
+  flex: 1;
+  background-color: #ffffff;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  overflow: hidden;
+  transition: all 0.4s ease;
+  text-decoration: none;
+  color: inherit;
+  display: block;
+  position: relative;
+}
+
+.newsCard::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 100%;
+  transition: width 0.6s ease;
+  z-index: 0;
+}
+
+.newsCard:nth-child(1)::before {
+  background-color: #f4eee8;
+}
+
+.newsCard:nth-child(2)::before {
+  background-color: #e8f4f0;
+}
+
+.newsCard:nth-child(3)::before {
+  background-color: #f3eae2;
+}
+
+.newsCard:hover::before {
+  width: 100%;
+}
+
+.newsCard:hover {
+  border-color: transparent;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+  transform: translateY(-4px);
+}
+
+.newsContent {
+  padding: 2rem;
+  position: relative;
+  z-index: 1;
+}
+
+.newsDate {
+  font-size: 0.75rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: rgba(0, 0, 0, 0.4);
+  margin-bottom: 1rem;
+  position: relative;
+  z-index: 1;
+}
+
+.newsTitle {
+  font-size: 1.5rem;
+  font-weight: 300;
+  line-height: 1.3;
+  margin-bottom: 1rem;
+  color: #1a1a1a;
+  transition: color 0.3s ease;
+  position: relative;
+  z-index: 1;
+}
+
+.newsCard:hover .newsTitle {
+  color: #7f9ca8;
+}
+
+.newsExcerpt {
+  font-size: 0.875rem;
+  line-height: 1.6;
+  color: #64748b;
+  margin-bottom: 1.5rem;
+  position: relative;
+  z-index: 1;
+}
+
+.newsReadMore {
+  font-size: 0.75rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: #7f9ca8;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: gap 0.3s ease;
+  position: relative;
+  z-index: 1;
+}
+
+/* Contact CTA Section */
+.contactCtaSection {
+  background-color: #7f9ca8;
+  color: #ffffff;
+  text-align: center;
+}
+
+.contactCtaHeading {
+  font-size: 2.5rem;
+  font-weight: 300;
+  line-height: 1.2;
+  margin-bottom: 2rem;
+}
+
+@media (min-width: 768px) {
+  .contactCtaHeading {
+    font-size: 3rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .contactCtaHeading {
+    font-size: 3.75rem;
+  }
+}
+
+.contactCtaText {
+  font-size: 1.125rem;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.9);
+  margin-bottom: 3rem;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.contactCtaButton {
+  display: inline-block;
+  padding: 1.25rem 2.5rem;
+  background-color: #ffffff;
+  color: #7f9ca8;
+  font-size: 0.875rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  font-weight: 500;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  border: 2px solid #ffffff;
+}
+
+.contactCtaButton:hover {
+  background-color: transparent;
+  color: #ffffff;
+}
+
+/* Quick Contact Section */
+.quickContactSection {
+  background-color: #c9a38e;
+  padding: 4rem 1.5rem;
+}
+
+@media (min-width: 1024px) {
+  .quickContactSection {
+    padding: 5rem 3rem;
+  }
+}
+
+.quickContactContent {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  align-items: flex-start;
+  max-width: 1200px;
+  margin: 0 auto;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.4s ease;
+  position: relative;
+}
+
+.quickContactContent::after {
+  content: '';
+  position: absolute;
+  bottom: -1rem;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: rgba(255, 255, 255, 0.5);
+  transition: width 0.4s ease;
+}
+
+.quickContactContent:hover::after {
+  width: 100%;
+}
+
+.quickContactContent:hover {
+  transform: translateX(0.5rem);
+}
+
+@media (min-width: 768px) {
+  .quickContactContent {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    gap: 3rem;
+  }
+}
+
+.quickContactText {
+  flex: 1;
+}
+
+.quickContactHeading {
+  font-size: 2rem;
+  font-weight: 300;
+  color: #ffffff;
+  margin-bottom: 1rem;
+  transition: color 0.3s ease;
+}
+
+@media (min-width: 768px) {
+  .quickContactHeading {
+    font-size: 2.5rem;
+  }
+}
+
+.quickContactContent:hover .quickContactHeading {
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.quickContactDescription {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.85);
+  transition: color 0.3s ease;
+}
+
+.quickContactContent:hover .quickContactDescription {
+  color: rgba(255, 255, 255, 0.95);
+}
+
+.quickContactArrow {
+  color: #ffffff;
+  opacity: 0.7;
+  transition: all 0.4s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.quickContactContent:hover .quickContactArrow {
+  opacity: 1;
+  transform: translateX(0.5rem);
+}
