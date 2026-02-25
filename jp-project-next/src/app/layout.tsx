@@ -1,8 +1,9 @@
 import type { Metadata } from "next";
+import { Suspense } from "react";
 import { Playfair_Display } from "next/font/google";
 import "./globals.css";
 import { LanguageProvider } from "@/context/LanguageContext";
-// import { Header } from "@/components/Header/Header";
+import { Header } from "@/components/Header/Header";
 
 const Playfair = Playfair_Display({
   variable: "--font-family",
@@ -51,8 +52,10 @@ export default function RootLayout({
         className={`${Playfair.variable} antialiased`}
       >
         <LanguageProvider>
-          {/* <Header/> */}
-        {children}
+         <Suspense fallback={null}>  {/* или лоадер / скелетон */}
+          <Header />
+          {children}
+        </Suspense>
         </LanguageProvider>
       </body>
     </html>
