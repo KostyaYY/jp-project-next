@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Playfair_Display } from "next/font/google";
 import "./globals.css";
 import { LanguageProvider } from "@/context/LanguageContext";
+import { Header } from "@/components/Header/Header";
 
 const Playfair = Playfair_Display({
   variable: "--font-family",
@@ -50,6 +51,7 @@ export default function RootLayout({
         className={`${Playfair.variable} antialiased`}
       >
         <LanguageProvider>
+          <Header/>
         {children}
         </LanguageProvider>
       </body>

@@ -1,0 +1,320 @@
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 50;
+  background-color: #ffffff;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.container {
+  max-width: 1600px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+@media (min-width: 1024px) {
+  .container {
+    padding: 0 3rem;
+  }
+}
+
+.headerInner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 80px;
+}
+
+.logo {
+  font-size: 1.25rem;
+  font-weight: 400;
+  letter-spacing: -0.02em;
+  color: #1a1a1a;
+  text-decoration: none;
+  transition: opacity 0.3s ease;
+}
+
+.logo:hover {
+  opacity: 0.7;
+}
+
+.headerActions {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+.contactLink {
+  font-size: 0.875rem;
+  letter-spacing: 0.05em;
+  color: #1a1a1a;
+  text-decoration: none;
+  transition: opacity 0.3s ease;
+  display: none;
+}
+
+@media (min-width: 768px) {
+  .contactLink {
+    display: block;
+  }
+}
+
+.contactLink:hover {
+  opacity: 0.7;
+}
+
+.langSwitcher {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.langButton {
+  background: none;
+  border: none;
+  padding: 0;
+  font-size: 0.875rem;
+  letter-spacing: 0.05em;
+  color: #1a1a1a;
+  cursor: pointer;
+  transition: opacity 0.3s ease;
+}
+
+.langButton.active {
+  font-weight: 500;
+  opacity: 1;
+}
+
+.langButton.inactive {
+  opacity: 0.4;
+}
+
+.langButton.inactive:hover {
+  opacity: 0.7;
+}
+
+.langSeparator {
+  color: #d1d5db;
+}
+
+.menuButton {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.875rem;
+  letter-spacing: 0.05em;
+  color: #1a1a1a;
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  transition: opacity 0.3s ease;
+}
+
+.menuButton:hover {
+  opacity: 0.7;
+}
+
+.menuIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.menuButtonText {
+  display: none;
+}
+
+@media (min-width: 768px) {
+  .menuButtonText {
+    display: inline;
+  }
+}
+
+.menuOverlay {
+  position: fixed;
+  inset: 0;
+  z-index: 40;
+  background: linear-gradient(to right, #2c5282 0%, #2c5282 50%, #f3eae2 50%, #f3eae2 100%);
+  padding-top: 80px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
+.menuOverlayOpen {
+  opacity: 1;
+  pointer-events: auto;
+  animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.menuContent {
+  height: 100%;
+  overflow-y: auto;
+}
+
+.menuContainer {
+  max-width: 1600px;
+  margin: 0 auto;
+  padding: 3rem 1.5rem;
+}
+
+@media (min-width: 1024px) {
+  .menuContainer {
+    padding: 3rem;
+  }
+}
+
+.menuGrid {
+  display: grid;
+  gap: 2rem;
+}
+
+@media (min-width: 768px) {
+  .menuGrid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 3rem;
+  }
+}
+
+.menuSection {
+  margin-bottom: 3rem;
+}
+
+.menuSectionTitle {
+  font-size: 0.75rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 1);
+  margin-bottom: 2rem;
+}
+.menuSectionTitle2 {
+  font-size: 0.75rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: rgb(11, 0, 0);
+  margin-bottom: 2rem;
+}
+.menuNav {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.menuNavItem {
+  margin-bottom: 1.5rem;
+}
+
+.menuNavLink {
+  font-size: 2rem;
+  font-weight: 300;
+  color: #ffffff;
+  text-decoration: none;
+  display: block;
+  transition: opacity 0.3s ease;
+}
+
+@media (min-width: 768px) {
+  .menuNavLink {
+    font-size: 2rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .menuNavLink {
+    font-size: 2.25rem;
+  }
+}
+
+.menuNavLink:hover {
+  opacity: 0.8;
+}
+
+.menuInfo {
+  margin-bottom: 3rem;
+}
+
+.menuInfoTitle {
+  font-size: 0.75rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: rgba(0, 0, 0, 0.4);
+  margin-bottom: 1.5rem;
+}
+
+.menuInfoContent {
+  font-size: 1.125rem;
+  line-height: 1.75;
+}
+
+.menuInfoContent a {
+  color: #1a1a1a;
+  text-decoration: none;
+  transition: opacity 0.3s ease;
+}
+
+.menuInfoContent a:hover {
+  opacity: 0.7;
+}
+
+.menuSocial {
+  display: flex;
+  gap: 1.5rem;
+  font-size: 0.875rem;
+}
+
+.menuSocial a {
+  color: #1a1a1a;
+  text-decoration: none;
+  letter-spacing: 0.05em;
+  transition: opacity 0.3s ease;
+}
+
+.menuSocial a:hover {
+  opacity: 0.7;
+}
+
+.menuServicesNav {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem 2rem;
+  column-gap: 3rem;
+}
+
+@media (max-width: 768px) {
+  .menuServicesNav {
+    grid-template-columns: 1fr;
+  }
+}
+
+.menuServiceItem {
+  margin: 0;
+}
+
+.menuServiceLink {
+  font-size: 1rem;
+  font-weight: 300;
+  color: #1a1a1a;
+  text-decoration: none;
+  display: block;
+  transition: opacity 0.3s ease;
+  line-height: 1.5;
+}
+
+.menuServiceLink:hover {
+  opacity: 0.7;
+}

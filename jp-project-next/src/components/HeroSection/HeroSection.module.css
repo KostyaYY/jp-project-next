@@ -20,6 +20,20 @@
   opacity: 0.4;
 }
 
+.backgroundImage {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.4;
+  transition: opacity 0.8s ease;
+}
+
+.imageTransition {
+  opacity: 0.2;
+}
+
 .overlay {
   position: absolute;
   inset: 0;
