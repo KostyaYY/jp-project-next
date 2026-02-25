@@ -1,6 +1,7 @@
+"use client";
+import Image from 'next/image';
 import { useEffect, useState } from 'react';
 import { useLanguage } from '@/context/LanguageContext';
-import Image from 'next/image';
 import styles from './HeroSection.module.css';
 
 const slogans = [
@@ -39,94 +40,24 @@ const slogans = [
 export function HeroSection() {
   const { language } = useLanguage();
   const [currentIndex, setCurrentIndex] = useState(0);
-  const [showIntro, setShowIntro] = useState(false);
-  const [introPhase, setIntroPhase] = useState<'initial' | 'name' | 'complete'>('initial');
   const [isTransitioning, setIsTransitioning] = useState(false);
   const [imageTransitioning, setImageTransitioning] = useState(false);
 
-  // Check if this is the first visit
   useEffect(() => {
-    const hasVisited = sessionStorage.getItem('hasVisitedJustyfin');
-    if (!hasVisited) {
-      setShowIntro(true);
-      
-      // Animation timeline
-      const nameTimer = setTimeout(() => {
-        setIntroPhase('name');
-      }, 1500);
+    const interval = setInterval(() => {
+      setIsTransitioning(true);
+      setImageTransitioning(true);
+      setTimeout(() => {
+        setCurrentIndex((prev) => (prev + 1) % slogans.length);
+        setIsTransitioning(false);
+      }, 400);
+      setTimeout(() => {
+        setImageTransitioning(false);
+      }, 800);
+    }, 4000);
 
-      const completeTimer = setTimeout(() => {
-        setIntroPhase('complete');
-        sessionStorage.setItem('hasVisitedJustyfin', 'true');
-        setShowIntro(false);
-      }, 5500);
-
-      return () => {
-        clearTimeout(nameTimer);
-        clearTimeout(completeTimer);
-      };
-    }
+    return () => clearInterval(interval);
   }, []);
-
-  useEffect(() => {
-    if (!showIntro) {
-      const interval = setInterval(() => {
-        setIsTransitioning(true);
-        setImageTransitioning(true);
-        setTimeout(() => {
-          setCurrentIndex((prev) => (prev + 1) % slogans.length);
-          setIsTransitioning(false);
-        }, 400);
-        setTimeout(() => {
-          setImageTransitioning(false);
-        }, 800);
-      }, 4000);
-
-      return () => clearInterval(interval);
-    }
-  }, [showIntro]);
-
-  if (showIntro) {
-    return (
-      <section className={styles.hero}>
-        {/* Animated Background */}
-        <div className={styles.introBackground}>
-          {/* Blue block - starts from left */}
-          <div 
-            className={`${styles.colorBlockBlue} ${
-              introPhase === 'initial' 
-                ? styles.phaseInitial 
-                : introPhase === 'complete' 
-                ? styles.phaseComplete 
-                : ''
-            }`}
-          />
-          
-          {/* Beige block - starts from right */}
-          <div 
-            className={`${styles.colorBlockBeige} ${
-              introPhase === 'initial' 
-                ? styles.phaseInitial 
-                : introPhase === 'complete' 
-                ? styles.phaseComplete 
-                : ''
-            }`}
-          />
-        </div>
-
-        {/* Company Name */}
-        <div className={styles.content}>
-          {introPhase !== 'initial' && (
-            <div className={`${styles.introContent} ${styles.introContentVisible}`}>
-              <h1 className={styles.introCompanyName}>
-                JUSTYFIN PARTNERS
-              </h1>
-            </div>
-          )}
-        </div>
-      </section>
-    );
-  }
 
   return (
     <section className={styles.hero}>
@@ -134,9 +65,11 @@ export function HeroSection() {
       <div className={styles.videoBackground}>
         <Image
           src={slogans[currentIndex].imageUrl}
-          alt="Office background"
-          width={300}
-          height={300}
+          alt={`Background for ${language === 'ukr' ? slogans[currentIndex].ukr : slogans[currentIndex].eng}`}
+          fill
+          sizes="100vw"
+          quality={85}
+          priority={currentIndex === 0} // перша картинка завантажується з пріоритетом
           className={`${styles.backgroundImage} ${imageTransitioning ? styles.imageTransition : ''}`}
         />
         <div className={styles.overlay} />
